@@ -2,11 +2,13 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
     BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'camilaagwus'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or '1MrkvgqUhgC8+vn8hJPfONNFdKypGnTGBnDXgCpU5V8TgV+gza7kCzF06ZYj6nHplfaqJYrxbUQi8KgI1f4T+A=='
+    BLOB_STORAGE_KEY = os.environ.get(
+        'BLOB_STORAGE_KEY') or '1MrkvgqUhgC8+vn8hJPfONNFdKypGnTGBnDXgCpU5V8TgV+gza7kCzF06ZYj6nHplfaqJYrxbUQi8KgI1f4T+A=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
     SQL_SERVER = os.environ.get('SQL_SERVER') or 'camilaagw-server.database.windows.net'
@@ -14,12 +16,12 @@ class Config(object):
     SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'camilaagwadmin'
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or 'qaz123wsx456A'
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
-    SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
+    SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE + '?driver=ODBC+Driver+17+for+SQL+Server'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     ### Info for MS Authentication ###
     ### As adapted from: https://github.com/Azure-Samples/ms-identity-python-webapp ###
-    CLIENT_SECRET = "gB9i4M~FT2JJi.~3-ccWBd0xZh8ntUb-kh"
+    CLIENT_SECRET = "qH5~WX6.hzW~XKT3Bfi-fx4zY2M44f-F-."
     # In your production app, Microsoft recommends you to use other ways to store your secret,
     # such as KeyVault, or environment variable as described in Flask's documentation here:
     # https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
@@ -36,6 +38,6 @@ class Config(object):
 
     # You can find the proper permission names from this document
     # https://docs.microsoft.com/en-us/graph/permissions-reference
-    SCOPE = ["User.Read"] # Only need to read user profile for this app
+    SCOPE = ["User.Read"]  # Only need to read user profile for this app
 
     SESSION_TYPE = "filesystem"  # Token cache will be stored in server-side session
